@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://arenaex1elite"]
+
+[ext_resource type="SpriteFrames" path="res://actors/enemy_frames.tres" id="1"]
+[ext_resource type="Shader" path="res://shaders/exercises/palette_swap.gdshader" id="2"]
+
+[sub_resource type="ShaderMaterial" id="mat_paleta"]
+shader = ExtResource("2")
+shader_parameter/color_sombra = Color(0.25, 0, 0.05, 1)
+shader_parameter/color_brillo = Color(1, 0.85, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="ls"]
+font_size = 18
+
+[node name="Elite" type="Node2D"]
+
+[node name="Titulo" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 620.0
+offset_bottom = 44.0
+text = "Ejercicio 1 — Esqueleto élite (intercambio de paleta). Magenta = falta tu shader."
+label_settings = SubResource("ls")
+
+[node name="Normal" type="AnimatedSprite2D" parent="."]
+position = Vector2(200, 200)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="EtiquetaNormal" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 250.0
+offset_right = 320.0
+offset_bottom = 278.0
+text = "normal"
+
+[node name="EliteSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("mat_paleta")
+position = Vector2(440, 200)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="EtiquetaElite" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 250.0
+offset_right = 560.0
+offset_bottom = 278.0
+text = "élite (tu paleta)"

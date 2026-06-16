@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://arenaarena01"]
+
+[ext_resource type="PackedScene" path="res://actors/player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="2"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="3"]
+[ext_resource type="Shader" path="res://shaders/pantalla_fx.gdshader" id="4"]
+[ext_resource type="Script" path="res://scripts/controlador_pantalla.gd" id="5"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://ui/pausa.tscn" id="7"]
+
+[sub_resource type="RectangleShape2D" id="muro_h"]
+size = Vector2(640, 10)
+
+[sub_resource type="RectangleShape2D" id="muro_v"]
+size = Vector2(10, 360)
+
+[sub_resource type="ShaderMaterial" id="mat_pantalla"]
+shader = ExtResource("4")
+shader_parameter/gris = 0.0
+shader_parameter/dano = 0.0
+
+[node name="Arena" type="Node2D"]
+
+[node name="Suelo" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.16, 0.15, 0.2, 1)
+mouse_filter = 2
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Arriba" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(320, 4)
+shape = SubResource("muro_h")
+
+[node name="Abajo" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(320, 356)
+shape = SubResource("muro_h")
+
+[node name="Izquierda" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(4, 180)
+shape = SubResource("muro_v")
+
+[node name="Derecha" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(636, 180)
+shape = SubResource("muro_v")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(320, 210)
+
+[node name="Enemy" parent="." instance=ExtResource("2")]
+position = Vector2(120, 90)
+
+[node name="Enemy2" parent="." instance=ExtResource("2")]
+position = Vector2(540, 90)
+
+[node name="Enemy3" parent="." instance=ExtResource("2")]
+position = Vector2(120, 300)
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3")
+escena_enemigo = ExtResource("2")
+
+[node name="Pantalla" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="FX" type="ColorRect" parent="Pantalla"]
+material = SubResource("mat_pantalla")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("5")
+
+[node name="HUD" parent="." instance=ExtResource("6")]
+layer = 2
+
+[node name="Pausa" parent="." instance=ExtResource("7")]
+layer = 3
