@@ -55,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("atacar"):
 		_entrar_ataque()
+		return
 	elif estado != Estado.ATTACK and dir != Vector2.ZERO:
 		_cambiar_a(Estado.RUN, "run")
 	elif estado != Estado.ATTACK:

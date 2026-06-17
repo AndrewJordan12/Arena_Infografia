@@ -22,14 +22,15 @@ extends Node
 #     JUGANDO). Ver _solutions/game_manager_oleadas_solved.gd
 # ==========================================================================
 
-enum Estado { JUGANDO, PAUSA }   # TODO: falta OLEADA_LIMPIA
+enum Estado { JUGANDO, OLEADA_LIMPIA, PAUSA }   # TODO: falta OLEADA_LIMPIA
 
 var estado: Estado = Estado.JUGANDO
+var estado_anterior: Estado = estado
 var oleada := 0
 var cuenta := 0.0
+var cuenta_regresiva := 3.0
 
 @onready var label: Label = $UI/Estado
-
 
 func _ready() -> void:
 	_empezar_oleada()
@@ -43,25 +44,32 @@ func _empezar_oleada() -> void:
 
 
 func _process(delta: float) -> void:
-	if estado == Estado.JUGANDO:
-		cuenta -= delta
-		if cuenta <= 0.0:
-			_oleada_limpiada()
+	match estado:
+		Estado.JUGANDO:
+			cuenta -= delta
+			if cuenta <= 0.0:
+				_oleada_limpiada()
+		Estado.OLEADA_LIMPIA:
+			cuenta_regresiva -= delta
+			if cuenta_regresiva <= 0.0:
+				cuenta_regresiva = 3.0  
+				_empezar_oleada()
+		Estado.PAUSA:
+			pass
 	_refrescar()
 
-
 func _oleada_limpiada() -> void:
-	# TODO: en vez de empezar de inmediato, entra a OLEADA_LIMPIA con cuenta 3.0.
-	_empezar_oleada()
-
+	estado = Estado.OLEADA_LIMPIA
+	cuenta_regresiva = 3.0
+	_refrescar()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("pausa"):
 		return
-	# TODO: que la pausa funcione desde CUALQUIER estado (recuerda el anterior).
 	if estado == Estado.PAUSA:
-		estado = Estado.JUGANDO
+		estado = estado_anterior
 	else:
+		estado_anterior = estado
 		estado = Estado.PAUSA
 	_refrescar()
 
@@ -72,3 +80,5 @@ func _refrescar() -> void:
 			label.text = "Oleada %d — sobrevive  (%0.1f)" % [oleada, maxf(cuenta, 0.0)]
 		Estado.PAUSA:
 			label.text = "PAUSA"
+		Estado.OLEADA_LIMPIA:
+			label.text = "OLEADA LIMPIA (%0.1f)" % [maxf(cuenta_regresiva, 0.0)]
