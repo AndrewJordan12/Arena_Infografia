@@ -18,7 +18,5 @@ func _ready() -> void:
 
 
 func _on_vida_cambiada(vida: int, _vida_max: int) -> void:
-	# TODO (en vivo): que la barra refleje la vida. Es un ProgressBar; su nivel
-	# se controla con la propiedad "value". Una sola línea:
-	#   value = vida
-	pass
+	value = vida
+	

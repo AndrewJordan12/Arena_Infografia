@@ -21,10 +21,8 @@ func _ready() -> void:
 
 
 func _on_estado_cambiado(_nuevo: GameManager.Estado) -> void:
-	# TODO (en vivo): al pausar, gris = 1.0; en cualquier otro estado, 0.0.
-	#   var gris := 1.0 if _nuevo == GameManager.Estado.PAUSA else 0.0
-	#   mat.set_shader_parameter("gris", gris)
-	pass
+	var gris := 1.0 if _nuevo == GameManager.Estado.PAUSA else 0.0
+	mat.set_shader_parameter("gris", gris)
 
 
 func _on_vida_cambiada(vida: int, vida_max: int) -> void:

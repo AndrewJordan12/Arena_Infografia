@@ -42,13 +42,11 @@ func _aparecer() -> void:
 	if escena_enemigo == null:
 		return
 	_por_aparecer -= 1
-	# TODO (en vivo): crear un esqueleto y meterlo en la arena. Tres líneas:
-	#   var e := escena_enemigo.instantiate()
-	#   e.global_position = _punto_borde()
-	#   add_child(e)
-	#   e.tree_exited.connect(_on_enemigo_fuera)
-	#   _vivos += 1
-	pass
+	var e := escena_enemigo.instantiate()
+	e.global_position = _punto_borde()
+	add_child(e)
+	e.tree_exited.connect(_on_enemigo_fuera)
+	_vivos += 1
 
 
 func _on_enemigo_fuera() -> void:

@@ -24,12 +24,12 @@ shader_type canvas_item;
 // — ya está resuelto usando original.a). Y prueba otra paleta en el inspector.
 // Solución en _solutions/palette_swap_solved.gdshader
 // ==========================================================================
-
 uniform vec4 color_sombra : source_color = vec4(0.25, 0.0, 0.05, 1.0);
 uniform vec4 color_brillo : source_color = vec4(1.0, 0.85, 0.2, 1.0);
 
 void fragment() {
 	vec4 original = texture(TEXTURE, UV);
-	// TODO (tu código): recolorea según la luminancia. Mientras tanto: magenta.
-	COLOR = vec4(1.0, 0.0, 1.0, original.a);
+	float lum = dot(original.rgb, vec3(0.299, 0.587, 0.114));
+	vec3 elite = mix(color_sombra.rgb, color_brillo.rgb, lum);
+	COLOR = vec4(elite, original.a);
 }
