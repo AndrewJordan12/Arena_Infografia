@@ -1,40 +1,37 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://arenatema01"]
+[gd_resource type="Theme" format=3 uid="uid://renatema01"]
 
-; Tema único del proyecto (reusado del módulo 9). Define cómo se ven TODOS los
-; botones, paneles y etiquetas desde un solo lugar.
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton"]
-bg_color = Color(0.21, 0.25, 0.38, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_hover"]
 content_margin_left = 18.0
 content_margin_top = 9.0
 content_margin_right = 18.0
 content_margin_bottom = 9.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton_hover"]
 bg_color = Color(0.36, 0.41, 0.56, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boton"]
 content_margin_left = 18.0
 content_margin_top = 9.0
 content_margin_right = 18.0
 content_margin_bottom = 9.0
+bg_color = Color(0.21, 0.25, 0.38, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
 bg_color = Color(0.12, 0.13, 0.18, 0.92)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
 
 [resource]
 default_font_size = 20

@@ -24,7 +24,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif GameManager.estado == GameManager.Estado.PAUSA:
 		GameManager.reanudar()
 
-
 func _on_estado_cambiado(nuevo: GameManager.Estado) -> void:
 	visible = nuevo == GameManager.Estado.PAUSA
 

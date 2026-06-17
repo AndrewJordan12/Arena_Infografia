@@ -1,48 +1,107 @@
-[gd_resource type="SpriteFrames" load_steps=37 format=3 uid="uid://arenaplayerframes01"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dlndpwuitc5me"]
 
-; === SpriteFrames del caballero (knight2) =================================
-; Cada hoja (_Idle, _Run, ...) es 1200x80 (o 480x80 / 120x80). El personaje
-; vive en la FILA DE ABAJO: por eso cada frame es una región de 120x40 con
-; y=40. Cada AtlasTexture recorta un frame de su hoja.
-;
-; OJO con los flags "loop": idle/run hacen loop (no emiten animation_finished);
-; attack/hurt/death NO hacen loop (emiten animation_finished UNA vez al
-; terminar). Esa diferencia es el corazón de la FSM del jugador.
-; ==========================================================================
+[ext_resource type="Texture2D" uid="uid://5on8p30qu1f" path="res://assets/knight2/_Idle.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c11mcd1ecbikn" path="res://assets/knight2/_Run.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d06sh2xymxnp1" path="res://assets/knight2/_Attack.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://nyypau3a5ff" path="res://assets/knight2/_Death.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bhaaysghmpxr7" path="res://assets/knight2/_Hit.png" id="5"]
 
-[ext_resource type="Texture2D" path="res://assets/knight2/_Idle.png" id="1"]
-[ext_resource type="Texture2D" path="res://assets/knight2/_Run.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/knight2/_Attack.png" id="3"]
-[ext_resource type="Texture2D" path="res://assets/knight2/_Death.png" id="4"]
-[ext_resource type="Texture2D" path="res://assets/knight2/_Hit.png" id="5"]
+[sub_resource type="AtlasTexture" id="atk1"]
+atlas = ExtResource("3")
+region = Rect2(120, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="atk0"]
+atlas = ExtResource("3")
+region = Rect2(0, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="atk2"]
+atlas = ExtResource("3")
+region = Rect2(240, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="atk3"]
+atlas = ExtResource("3")
+region = Rect2(360, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die0"]
+atlas = ExtResource("4")
+region = Rect2(0, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die1"]
+atlas = ExtResource("4")
+region = Rect2(120, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die2"]
+atlas = ExtResource("4")
+region = Rect2(240, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die3"]
+atlas = ExtResource("4")
+region = Rect2(360, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die4"]
+atlas = ExtResource("4")
+region = Rect2(480, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die5"]
+atlas = ExtResource("4")
+region = Rect2(600, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die6"]
+atlas = ExtResource("4")
+region = Rect2(720, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die7"]
+atlas = ExtResource("4")
+region = Rect2(840, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die8"]
+atlas = ExtResource("4")
+region = Rect2(960, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="die9"]
+atlas = ExtResource("4")
+region = Rect2(1080, 40, 120, 40)
+
+[sub_resource type="AtlasTexture" id="hit0"]
+atlas = ExtResource("5")
+region = Rect2(0, 40, 120, 40)
 
 [sub_resource type="AtlasTexture" id="idle0"]
 atlas = ExtResource("1")
 region = Rect2(0, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle1"]
 atlas = ExtResource("1")
 region = Rect2(120, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle2"]
 atlas = ExtResource("1")
 region = Rect2(240, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle3"]
 atlas = ExtResource("1")
 region = Rect2(360, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle4"]
 atlas = ExtResource("1")
 region = Rect2(480, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle5"]
 atlas = ExtResource("1")
 region = Rect2(600, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle6"]
 atlas = ExtResource("1")
 region = Rect2(720, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle7"]
 atlas = ExtResource("1")
 region = Rect2(840, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle8"]
 atlas = ExtResource("1")
 region = Rect2(960, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="idle9"]
 atlas = ExtResource("1")
 region = Rect2(1080, 40, 120, 40)
@@ -50,103 +109,165 @@ region = Rect2(1080, 40, 120, 40)
 [sub_resource type="AtlasTexture" id="run0"]
 atlas = ExtResource("2")
 region = Rect2(0, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run1"]
 atlas = ExtResource("2")
 region = Rect2(120, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run2"]
 atlas = ExtResource("2")
 region = Rect2(240, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run3"]
 atlas = ExtResource("2")
 region = Rect2(360, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run4"]
 atlas = ExtResource("2")
 region = Rect2(480, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run5"]
 atlas = ExtResource("2")
 region = Rect2(600, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run6"]
 atlas = ExtResource("2")
 region = Rect2(720, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run7"]
 atlas = ExtResource("2")
 region = Rect2(840, 40, 120, 40)
+
 [sub_resource type="AtlasTexture" id="run8"]
 atlas = ExtResource("2")
 region = Rect2(960, 40, 120, 40)
 
-[sub_resource type="AtlasTexture" id="atk0"]
-atlas = ExtResource("3")
-region = Rect2(0, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="atk1"]
-atlas = ExtResource("3")
-region = Rect2(120, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="atk2"]
-atlas = ExtResource("3")
-region = Rect2(240, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="atk3"]
-atlas = ExtResource("3")
-region = Rect2(360, 40, 120, 40)
-
-[sub_resource type="AtlasTexture" id="hit0"]
-atlas = ExtResource("5")
-region = Rect2(0, 40, 120, 40)
-
-[sub_resource type="AtlasTexture" id="die0"]
-atlas = ExtResource("4")
-region = Rect2(0, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die1"]
-atlas = ExtResource("4")
-region = Rect2(120, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die2"]
-atlas = ExtResource("4")
-region = Rect2(240, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die3"]
-atlas = ExtResource("4")
-region = Rect2(360, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die4"]
-atlas = ExtResource("4")
-region = Rect2(480, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die5"]
-atlas = ExtResource("4")
-region = Rect2(600, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die6"]
-atlas = ExtResource("4")
-region = Rect2(720, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die7"]
-atlas = ExtResource("4")
-region = Rect2(840, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die8"]
-atlas = ExtResource("4")
-region = Rect2(960, 40, 120, 40)
-[sub_resource type="AtlasTexture" id="die9"]
-atlas = ExtResource("4")
-region = Rect2(1080, 40, 120, 40)
-
 [resource]
 animations = [{
-"frames": [{"duration": 1.0, "texture": SubResource("idle0")}, {"duration": 1.0, "texture": SubResource("idle1")}, {"duration": 1.0, "texture": SubResource("idle2")}, {"duration": 1.0, "texture": SubResource("idle3")}, {"duration": 1.0, "texture": SubResource("idle4")}, {"duration": 1.0, "texture": SubResource("idle5")}, {"duration": 1.0, "texture": SubResource("idle6")}, {"duration": 1.0, "texture": SubResource("idle7")}, {"duration": 1.0, "texture": SubResource("idle8")}, {"duration": 1.0, "texture": SubResource("idle9")}],
-"loop": true,
-"name": &"idle",
-"speed": 10.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atk1")
 }, {
-"frames": [{"duration": 1.0, "texture": SubResource("run0")}, {"duration": 1.0, "texture": SubResource("run1")}, {"duration": 1.0, "texture": SubResource("run2")}, {"duration": 1.0, "texture": SubResource("run3")}, {"duration": 1.0, "texture": SubResource("run4")}, {"duration": 1.0, "texture": SubResource("run5")}, {"duration": 1.0, "texture": SubResource("run6")}, {"duration": 1.0, "texture": SubResource("run7")}, {"duration": 1.0, "texture": SubResource("run8")}],
-"loop": true,
-"name": &"run",
-"speed": 14.0
+"duration": 1.0,
+"texture": SubResource("atk0")
 }, {
-"frames": [{"duration": 1.0, "texture": SubResource("atk0")}, {"duration": 1.0, "texture": SubResource("atk1")}, {"duration": 1.0, "texture": SubResource("atk2")}, {"duration": 1.0, "texture": SubResource("atk3")}],
+"duration": 1.0,
+"texture": SubResource("atk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("atk3")
+}],
 "loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
-"frames": [{"duration": 4.0, "texture": SubResource("hit0")}],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("die0")
+}, {
+"duration": 1.0,
+"texture": SubResource("die1")
+}, {
+"duration": 1.0,
+"texture": SubResource("die2")
+}, {
+"duration": 1.0,
+"texture": SubResource("die3")
+}, {
+"duration": 1.0,
+"texture": SubResource("die4")
+}, {
+"duration": 1.0,
+"texture": SubResource("die5")
+}, {
+"duration": 1.0,
+"texture": SubResource("die6")
+}, {
+"duration": 1.0,
+"texture": SubResource("die7")
+}, {
+"duration": 1.0,
+"texture": SubResource("die8")
+}, {
+"duration": 1.0,
+"texture": SubResource("die9")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("hit0")
+}],
 "loop": false,
 "name": &"hurt",
 "speed": 12.0
 }, {
-"frames": [{"duration": 1.0, "texture": SubResource("die0")}, {"duration": 1.0, "texture": SubResource("die1")}, {"duration": 1.0, "texture": SubResource("die2")}, {"duration": 1.0, "texture": SubResource("die3")}, {"duration": 1.0, "texture": SubResource("die4")}, {"duration": 1.0, "texture": SubResource("die5")}, {"duration": 1.0, "texture": SubResource("die6")}, {"duration": 1.0, "texture": SubResource("die7")}, {"duration": 1.0, "texture": SubResource("die8")}, {"duration": 1.0, "texture": SubResource("die9")}],
-"loop": false,
-"name": &"death",
-"speed": 12.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("idle0")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle2")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle3")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle4")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle5")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle6")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle7")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle8")
+}, {
+"duration": 1.0,
+"texture": SubResource("idle9")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("run0")
+}, {
+"duration": 1.0,
+"texture": SubResource("run1")
+}, {
+"duration": 1.0,
+"texture": SubResource("run2")
+}, {
+"duration": 1.0,
+"texture": SubResource("run3")
+}, {
+"duration": 1.0,
+"texture": SubResource("run4")
+}, {
+"duration": 1.0,
+"texture": SubResource("run5")
+}, {
+"duration": 1.0,
+"texture": SubResource("run6")
+}, {
+"duration": 1.0,
+"texture": SubResource("run7")
+}, {
+"duration": 1.0,
+"texture": SubResource("run8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 14.0
 }]

@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://arenamenu01"]
+[gd_scene format=3 uid="uid://renamenu01"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1"]
+[ext_resource type="Script" uid="uid://bnrrguu3d61to" path="res://scripts/menu.gd" id="1"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=2033703999]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Centro" type="CenterContainer" parent="."]
+[node name="Centro" type="CenterContainer" parent="." unique_id=800326904]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,26 +19,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Caja" type="VBoxContainer" parent="Centro"]
+[node name="Caja" type="VBoxContainer" parent="Centro" unique_id=1946893263]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Titulo" type="Label" parent="Centro/Caja"]
+[node name="Titulo" type="Label" parent="Centro/Caja" unique_id=1004809162]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
 text = "ARENA SURVIVAL"
-
-[node name="Subtitulo" type="Label" parent="Centro/Caja"]
-layout_mode = 2
 horizontal_alignment = 1
-text = "Sprites · UI · Shaders — Módulo 11"
 
-[node name="Jugar" type="Button" parent="Centro/Caja"]
+[node name="Subtitulo" type="Label" parent="Centro/Caja" unique_id=1066267346]
+layout_mode = 2
+text = "Sprites · UI · Shaders — Módulo 11"
+horizontal_alignment = 1
+
+[node name="Jugar" type="Button" parent="Centro/Caja" unique_id=1902171778]
 layout_mode = 2
 text = "Jugar"
 
-[node name="Salir" type="Button" parent="Centro/Caja"]
+[node name="Salir" type="Button" parent="Centro/Caja" unique_id=1195426475]
 layout_mode = 2
 text = "Salir"
 

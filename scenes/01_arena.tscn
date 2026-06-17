@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://arenaarena01"]
+[gd_scene format=3 uid="uid://renaarena01"]
 
-[ext_resource type="PackedScene" path="res://actors/player.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="2"]
-[ext_resource type="Script" path="res://scripts/spawner.gd" id="3"]
-[ext_resource type="Shader" path="res://shaders/pantalla_fx.gdshader" id="4"]
-[ext_resource type="Script" path="res://scripts/controlador_pantalla.gd" id="5"]
-[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://ui/pausa.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://renaplayer01" path="res://actors/player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://renaenemy01" path="res://actors/enemy.tscn" id="2"]
+[ext_resource type="Script" uid="uid://dk1ef66aecljk" path="res://scripts/spawner.gd" id="3"]
+[ext_resource type="Shader" uid="uid://bq1t0fsxsl5ee" path="res://shaders/pantalla_fx.gdshader" id="4"]
+[ext_resource type="Script" uid="uid://b5qdyihwwlgi0" path="res://scripts/controlador_pantalla.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://renahud01" path="res://ui/hud.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://renapausa01" path="res://ui/pausa.tscn" id="7"]
 
 [sub_resource type="RectangleShape2D" id="muro_h"]
 size = Vector2(640, 10)
@@ -19,54 +19,52 @@ shader = ExtResource("4")
 shader_parameter/gris = 0.0
 shader_parameter/dano = 0.0
 
-[node name="Arena" type="Node2D"]
+[node name="Arena" type="Node2D" unique_id=1539065751]
 
-[node name="Suelo" type="ColorRect" parent="."]
+[node name="Suelo" type="ColorRect" parent="." unique_id=920952843]
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0.16, 0.15, 0.2, 1)
 mouse_filter = 2
+color = Color(0.16, 0.15, 0.2, 1)
 
-[node name="Paredes" type="StaticBody2D" parent="."]
-collision_layer = 1
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=10390566]
 collision_mask = 0
 
-[node name="Arriba" type="CollisionShape2D" parent="Paredes"]
+[node name="Arriba" type="CollisionShape2D" parent="Paredes" unique_id=3516149]
 position = Vector2(320, 4)
 shape = SubResource("muro_h")
 
-[node name="Abajo" type="CollisionShape2D" parent="Paredes"]
+[node name="Abajo" type="CollisionShape2D" parent="Paredes" unique_id=1014692262]
 position = Vector2(320, 356)
 shape = SubResource("muro_h")
 
-[node name="Izquierda" type="CollisionShape2D" parent="Paredes"]
+[node name="Izquierda" type="CollisionShape2D" parent="Paredes" unique_id=797462340]
 position = Vector2(4, 180)
 shape = SubResource("muro_v")
 
-[node name="Derecha" type="CollisionShape2D" parent="Paredes"]
+[node name="Derecha" type="CollisionShape2D" parent="Paredes" unique_id=981676]
 position = Vector2(636, 180)
 shape = SubResource("muro_v")
 
-[node name="Player" parent="." instance=ExtResource("1")]
+[node name="Player" parent="." unique_id=629958496 instance=ExtResource("1")]
 position = Vector2(320, 210)
 
-[node name="Enemy" parent="." instance=ExtResource("2")]
+[node name="Enemy" parent="." unique_id=1572691287 instance=ExtResource("2")]
 position = Vector2(120, 90)
 
-[node name="Enemy2" parent="." instance=ExtResource("2")]
+[node name="Enemy2" parent="." unique_id=1635199311 instance=ExtResource("2")]
 position = Vector2(540, 90)
 
-[node name="Enemy3" parent="." instance=ExtResource("2")]
+[node name="Enemy3" parent="." unique_id=70922800 instance=ExtResource("2")]
 position = Vector2(120, 300)
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Node2D" parent="." unique_id=1395818981]
 script = ExtResource("3")
 escena_enemigo = ExtResource("2")
 
-[node name="Pantalla" type="CanvasLayer" parent="."]
-layer = 1
+[node name="Pantalla" type="CanvasLayer" parent="." unique_id=156739510]
 
-[node name="FX" type="ColorRect" parent="Pantalla"]
+[node name="FX" type="ColorRect" parent="Pantalla" unique_id=2086348082]
 material = SubResource("mat_pantalla")
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,8 +72,8 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource("5")
 
-[node name="HUD" parent="." instance=ExtResource("6")]
+[node name="HUD" parent="." unique_id=1881762765 instance=ExtResource("6")]
 layer = 2
 
-[node name="Pausa" parent="." instance=ExtResource("7")]
+[node name="Pausa" parent="." unique_id=1991382414 instance=ExtResource("7")]
 layer = 3

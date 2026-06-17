@@ -15,7 +15,7 @@ extends Node2D
 @export var base_por_oleada := 4
 
 const CENTRO := Vector2(320, 180)
-const RADIO_APARICION := 210.0
+const RADIO_APARICION := 180.0
 
 var _por_aparecer := 0
 var _vivos := 0

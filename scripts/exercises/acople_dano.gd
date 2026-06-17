@@ -40,7 +40,9 @@ var vida := VIDA_MAXIMA
 func _ready() -> void:
 	barra.max_value = VIDA_MAXIMA
 	barra.value = vida
-	# TODO (tu código): conecta los TRES oyentes a la señal vida_cambiada.
+	vida_cambiada.connect(_actualizar_barra)
+	vida_cambiada.connect(_flash)
+	vida_cambiada.connect(_vineta)
 	pass
 
 
